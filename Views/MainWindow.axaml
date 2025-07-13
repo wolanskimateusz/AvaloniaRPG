@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaRPG.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaRPG.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaRPG">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+   <Grid ColumnDefinitions="200,*">
+       <StackPanel Background="Gray" Spacing="10" >
+           <Button HorizontalAlignment="Stretch" Command="{Binding ShowCharacterViewCommand}"> Postac</Button>
+           <Button HorizontalAlignment="Stretch" Command="{Binding ShowFightViewCommand}"> Walka</Button>
+           <Button HorizontalAlignment="Stretch"> Sklep</Button>
+           <Button HorizontalAlignment="Stretch"> Ranking</Button>
+           <Button HorizontalAlignment="Stretch"> Gildia</Button>
+           <Button HorizontalAlignment="Stretch"> Ustawienia</Button>
+       </StackPanel>
+       <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" />
+           
+    
+       </Grid>
+    
+
+</Window>

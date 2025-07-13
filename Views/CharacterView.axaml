@@ -1,0 +1,28 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaRPG.Views.CharacterView"
+        xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels"
+        x:DataType="vm:CharacterViewModel"
+       >
+    <StackPanel Spacing="10">
+        <TextBlock Text="Dane Postaci" FontSize="24" FontWeight="Bold"/>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Nazwa:" Width="80"/>
+            <TextBlock Text="{Binding Name}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Poziom:" Width="80"/>
+            <TextBlock Text="{Binding Level}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="HP:" Width="80"/>
+            <ProgressBar Minimum="0" Maximum="{Binding MaxHp}" Value="{Binding CurrentHp}" Width="200"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
