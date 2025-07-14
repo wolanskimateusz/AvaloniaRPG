@@ -1,11 +1,15 @@
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
+using AvaloniaRPG.Data;
+using AvaloniaRPG.Factories;
 using AvaloniaRPG.ViewModels;
 using AvaloniaRPG.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AvaloniaRPG;
 
@@ -18,6 +22,25 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+
+        var collection = new ServiceCollection();
+        collection.AddSingleton<MainWindowViewModel>();
+        collection.AddTransient<CharacterViewModel>();
+        collection.AddTransient<FightViewModel>();
+
+        collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
+        {
+            ApplicationPageNames.Character => x.GetRequiredService<CharacterViewModel>(),
+            ApplicationPageNames.Fight => x.GetRequiredService<FightViewModel>(),
+            
+            
+            _ => throw new InvalidOperationException(),
+        });
+
+        collection.AddSingleton<PageFactory>();
+        
+        var services = collection.BuildServiceProvider();
+        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
@@ -25,7 +48,7 @@ public partial class App : Application
             DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = services.GetRequiredService<MainWindowViewModel>(),
             };
         }
 

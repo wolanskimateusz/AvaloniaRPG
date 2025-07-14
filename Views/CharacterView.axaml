@@ -12,17 +12,17 @@
         
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Nazwa:" Width="80"/>
-            <TextBlock Text="{Binding Name}" />
+          
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Poziom:" Width="80"/>
-            <TextBlock Text="{Binding Level}" />
+         
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="HP:" Width="80"/>
-            <ProgressBar Minimum="0" Maximum="{Binding MaxHp}" Value="{Binding CurrentHp}" Width="200"/>
+          
         </StackPanel>
     </StackPanel>
 </UserControl>

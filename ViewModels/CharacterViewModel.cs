@@ -1,17 +1,14 @@
-﻿using AvaloniaRPG.Models;
+﻿using AvaloniaRPG.Data;
+using AvaloniaRPG.Models;
 
 namespace AvaloniaRPG.ViewModels;
 
-public partial class CharacterViewModel : ViewModelBase
+public partial class CharacterViewModel : PageViewModel
 {
-    public CharacterModel Character { get; }
     public CharacterViewModel()
     {
-        Character = new CharacterModel("Geralt", 5, 120, 100);
+        PageName = ApplicationPageNames.Character;
     }
     
-    public string Name => Character.Name;
-    public int Level => Character.Level;
-    public int MaxHp => Character.MaxHp;
-    public int CurrentHp => Character.CurrentHp;
+ 
 }

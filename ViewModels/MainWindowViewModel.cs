@@ -1,28 +1,32 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using AvaloniaRPG.Data;
+using AvaloniaRPG.Factories;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AvaloniaRPG.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public MainWindowViewModel()
-    {
-        CurrentViewModel = new CharacterViewModel();
-    }
-    
-    [RelayCommand]
-    private void ShowFightView()
-    {
-        CurrentViewModel =  new FightViewModel();
-    }
-    
-    [RelayCommand]
-    private void ShowCharacterView()
-    {
-        CurrentViewModel =  new CharacterViewModel();
-    }
     
     [ObservableProperty]
-    private ViewModelBase currentViewModel;
+    private PageViewModel _currentPage;
     
+    private readonly PageFactory _pageFactory;
+    
+    public MainWindowViewModel(PageFactory pageFactory)
+    {
+        _pageFactory = pageFactory;
+        ShowCharacterView();
+    }
+
+    [RelayCommand]
+    private void ShowFightView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Fight);
+    
+    [RelayCommand]
+
+    private void ShowCharacterView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Character);
+
+
+
+
 }

@@ -1,6 +1,11 @@
-﻿namespace AvaloniaRPG.ViewModels;
+﻿using AvaloniaRPG.Data;
 
-public class FightViewModel : ViewModelBase
+namespace AvaloniaRPG.ViewModels;
+
+public class FightViewModel : PageViewModel
 {
-    
+    public FightViewModel()
+    {
+        PageName = ApplicationPageNames.Fight;
+    }
 }
