@@ -26,13 +26,20 @@ public partial class App : Application
         var collection = new ServiceCollection();
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddTransient<CharacterViewModel>();
+        collection.AddTransient<ShopViewModel>();
+        collection.AddTransient<RankingViewModel>();
+        collection.AddTransient<SettingsViewModel>();
+        collection.AddTransient<GuildViewModel>();
         collection.AddTransient<FightViewModel>();
 
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {
             ApplicationPageNames.Character => x.GetRequiredService<CharacterViewModel>(),
             ApplicationPageNames.Fight => x.GetRequiredService<FightViewModel>(),
-            
+            ApplicationPageNames.Ranking => x.GetRequiredService<RankingViewModel>(),
+            ApplicationPageNames.Settings => x.GetRequiredService<SettingsViewModel>(),
+            ApplicationPageNames.Guild => x.GetRequiredService<GuildViewModel>(),
+            ApplicationPageNames.Shop  => x.GetRequiredService<ShopViewModel>(),
             
             _ => throw new InvalidOperationException(),
         });

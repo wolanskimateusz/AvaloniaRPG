@@ -19,10 +19,10 @@
        <StackPanel Background="Gray" Spacing="10" >
            <Button HorizontalAlignment="Stretch" Command="{Binding ShowCharacterViewCommand}"> Postac</Button>
            <Button HorizontalAlignment="Stretch" Command="{Binding ShowFightViewCommand}"> Walka</Button>
-           <Button HorizontalAlignment="Stretch"> Sklep</Button>
-           <Button HorizontalAlignment="Stretch"> Ranking</Button>
-           <Button HorizontalAlignment="Stretch"> Gildia</Button>
-           <Button HorizontalAlignment="Stretch"> Ustawienia</Button>
+           <Button HorizontalAlignment="Stretch" Command="{Binding ShowShopViewCommand}"> Sklep</Button>
+           <Button HorizontalAlignment="Stretch" Command="{Binding ShowRankingViewCommand}"> Ranking</Button>
+           <Button HorizontalAlignment="Stretch" Command="{Binding ShowGuildViewCommand}"> Gildia</Button>
+           <Button HorizontalAlignment="Stretch" Command="{Binding ShowSettingsViewCommand}"> Ustawienia</Button>
        </StackPanel>
        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}" />
            

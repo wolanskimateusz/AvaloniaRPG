@@ -19,14 +19,23 @@ public partial class MainWindowViewModel : ViewModelBase
         ShowCharacterView();
     }
 
+    
+    [RelayCommand]
+    private void ShowCharacterView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Character);
+    
     [RelayCommand]
     private void ShowFightView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Fight);
     
     [RelayCommand]
+    private void ShowShopView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Shop);
 
-    private void ShowCharacterView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Character);
+    [RelayCommand]
+    private void ShowRankingView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Ranking);
 
-
-
+    [RelayCommand]
+    private void ShowGuildView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Guild);
+    
+    [RelayCommand]
+    private void ShowSettingsView() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Settings);
 
 }
