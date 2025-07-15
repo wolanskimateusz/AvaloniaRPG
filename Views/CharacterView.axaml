@@ -6,23 +6,52 @@
         x:Class="AvaloniaRPG.Views.CharacterView"
         xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels"
         x:DataType="vm:CharacterViewModel"
+        Foreground="Black"
+        Background="DimGray"
        >
-    <StackPanel Spacing="10">
-        <TextBlock Text="Dane Postaci" FontSize="24" FontWeight="Bold"/>
+    <Grid ColumnDefinitions="5*,4*" >
+        <Grid Grid.Row="0" Grid.Column="0" ColumnDefinitions="5*,3*" RowDefinitions="5*,Auto,3*">
+            <!-- Equipment -->
+            <Grid Grid.Row="0" Grid.Column="0" Background="Aqua">
+                <Label Content="Equipment"/>
+            </Grid>
+            <!-- Stats -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="Beige">
+                <TextBlock Text="{Binding Character.Level, StringFormat='Lv {0}'}"/>
+                <TextBlock Text="{Binding Character.MaxHp, StringFormat='Hp {0}'}"/>
+                <TextBlock Text="{Binding Character.Strength, StringFormat='Str {0}'}"/>
+                <TextBlock Text="{Binding Character.Dexterity, StringFormat='Dex {0}'}"/>
+                <TextBlock Text="{Binding Character.Intelligence, StringFormat='Int {0}'}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Grid >
+                    <!-- Name -->
+                    <TextBlock Text="{Binding Character.Name}" HorizontalAlignment="Center"/>
+                    <Button Command="{Binding SaveCharacterCommand}" HorizontalAlignment="Right">Save Character</Button>
+                </Grid>
+                <!-- Exp Bar -->
+            <ProgressBar  Minimum="0" Maximum="100" Value="65" Height="20"/>
+            </StackPanel>
+            <!-- Spells and passives -->
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="BlueViolet">
+                <Label Content="Spells and passives" />
+            </Grid>
+        </Grid>
         
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Nazwa:" Width="80"/>
-          
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Poziom:" Width="80"/>
-         
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="HP:" Width="80"/>
-          
-        </StackPanel>
-    </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid RowDefinitions="Auto,*">
+                <!--- Currency -->
+                <StackPanel Orientation="Horizontal" Background="Coral">
+                    <Label Content="Gold"/>
+                    <Label Content="Fire"/>
+                    <Label Content="Cold"/>
+                    <Label Content="Light"/>
+                </StackPanel>
+                <!-- Backpack -->
+                <Grid Grid.Row="1" Background="DarkOliveGreen">
+                    <Label Content="Backpack" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
 </UserControl>

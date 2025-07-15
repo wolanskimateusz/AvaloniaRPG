@@ -7,6 +7,8 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using AvaloniaRPG.Data;
 using AvaloniaRPG.Factories;
+using AvaloniaRPG.Interfaces;
+using AvaloniaRPG.Services;
 using AvaloniaRPG.ViewModels;
 using AvaloniaRPG.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +26,7 @@ public partial class App : Application
     {
 
         var collection = new ServiceCollection();
+        // ViewModels
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddTransient<CharacterViewModel>();
         collection.AddTransient<ShopViewModel>();
@@ -31,6 +34,10 @@ public partial class App : Application
         collection.AddTransient<SettingsViewModel>();
         collection.AddTransient<GuildViewModel>();
         collection.AddTransient<FightViewModel>();
+        
+        
+        // Services
+        collection.AddSingleton<ICharacterService, FileCharacterService>();
 
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {
