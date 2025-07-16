@@ -12,7 +12,8 @@ public class EnemyService : IEnemyService
         var enemy = new EnemyModel
         {
             Name = "Enemy2",
-            Health = 100,
+            CurrentHp = 100,
+            MaxHp = 100,
             Attack = 25
         };
         return enemy;

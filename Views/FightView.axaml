@@ -3,8 +3,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels"
+             x:DataType="vm:FightViewModel"
              x:Class="AvaloniaRPG.Views.FightView">
-    <Grid>
-        <TextBlock Text="Ekran Walki" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid ColumnDefinitions="*,3*,*" Background="DarkSalmon">
+        <!-- Fight Logs -->
+        <Grid Grid.Column="0" ColumnDefinitions="*,Auto">
+            
+            <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+                <ItemsControl Background="Brown" >
+                    <TextBlock TextWrapping="Wrap" Text="Turn 1"/>
+                    <TextBlock TextWrapping="Wrap" Text="Player dealt X dmg" />
+                    <TextBlock TextWrapping="Wrap" Text="Enemy dealt X dmg" />
+                    <TextBlock TextWrapping="Wrap" Text="Player dealt X dmg" />
+                    <TextBlock TextWrapping="Wrap" Text="Enemy dealt X dmg" />
+                </ItemsControl>
+            </ScrollViewer>
+            <Grid Grid.Column="1" VerticalAlignment="Center">
+                <Button Content=">" />
+            </Grid>
+            
+        </Grid>
+        <!-- Fight HUD -->
+        <Grid RowDefinitions="*,*,3*,*,*,2*" Grid.Column="1"  Background="CornflowerBlue">
+            <TextBlock Grid.Row="0" Text ="{Binding Enemy.Name}" Background="Aqua" HorizontalAlignment="Center"/>
+            <Grid Grid.Row="1">
+                <ProgressBar  Minimum="0" 
+                              Maximum="{Binding Enemy.MaxHp}" 
+                              Value="{Binding Enemy.CurrentHp}" 
+                              Background="Brown" 
+                              HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding EnemyHpDisplay}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           FontWeight="Bold"/>
+            </Grid>
+            <TextBlock Grid.Row="2" Text ="Enemy Img" Background="Aqua" HorizontalAlignment="Center"/>
+            <Grid Grid.Row="3">
+                <ProgressBar  Minimum="0" 
+                              Maximum="{Binding Character.MaxHp}" 
+                              Value="{Binding Character.CurrentHp}" 
+                              Background="Brown" 
+                              HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding CharacterHpDisplay}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           FontWeight="Bold"/>
+            </Grid>
+            <TextBlock Grid.Row="4" Text ="Player Mana" Background="Aqua" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="5" Text ="Player Spells" Background="Brown" HorizontalAlignment="Center"/>
+        </Grid>
     </Grid>
 </UserControl>

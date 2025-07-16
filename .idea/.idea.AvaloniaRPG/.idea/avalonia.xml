@@ -5,6 +5,7 @@
       <map>
         <entry key="App.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/CharacterView.axaml" value="AvaloniaRPG.csproj" />
+        <entry key="Views/FightView.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/GuildView.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/MainWindow.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/RankingView.axaml" value="AvaloniaRPG.csproj" />
