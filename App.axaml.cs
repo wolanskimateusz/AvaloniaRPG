@@ -39,6 +39,7 @@ public partial class App : Application
         // Services
         collection.AddSingleton<ICharacterService, FileCharacterService>();
         collection.AddSingleton<IEnemyService, EnemyService>();
+        collection.AddSingleton<IFightService, FightService>();
 
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {

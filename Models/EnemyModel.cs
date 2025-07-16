@@ -6,5 +6,7 @@ public class EnemyModel
     public int CurrentHp { get; set; } = 100;
     public int MaxHp { get; set; } = 100;
     public int Attack { get; set; } = 20;
+    
+    public int Defence { get; set; } = 20;
 
 }

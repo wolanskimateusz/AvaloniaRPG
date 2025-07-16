@@ -6,7 +6,6 @@ namespace AvaloniaRPG.Services;
 
 public class EnemyService : IEnemyService
 {
-    
     public EnemyModel GetEnemy()
     {
         var enemy = new EnemyModel
@@ -14,13 +13,10 @@ public class EnemyService : IEnemyService
             Name = "Enemy2",
             CurrentHp = 100,
             MaxHp = 100,
-            Attack = 25
+            Attack = 25,
+            Defence = 5
         };
         return enemy;
     }
-
-    public int EnemyAttack(int attack)
-    {
-        throw new System.NotImplementedException();
-    }
+    
 }

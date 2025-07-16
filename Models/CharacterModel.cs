@@ -10,6 +10,7 @@ public class CharacterModel
     public int Strength { get; set; } = 3;
     public int Dexterity { get; set; } = 3;
     public int Intelligence { get; set; } = 3;
+    public int Defence { get; set; } = 3;
 
 
 }

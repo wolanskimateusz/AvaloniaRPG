@@ -53,7 +53,9 @@
                            FontWeight="Bold"/>
             </Grid>
             <TextBlock Grid.Row="4" Text ="Player Mana" Background="Aqua" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Row="5" Text ="Player Spells" Background="Brown" HorizontalAlignment="Center"/>
+            <Grid Grid.Row="5" Background="Brown" HorizontalAlignment="Center">
+                <Button Content="Attack" Command="{Binding PlayerAttackCommand}"/>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
