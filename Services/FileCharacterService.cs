@@ -20,7 +20,6 @@ public class FileCharacterService : ICharacterService
 
     }
     
-   
     public void SaveCharacter(CharacterModel character)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };

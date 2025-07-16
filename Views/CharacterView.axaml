@@ -10,7 +10,8 @@
         Background="DimGray"
        >
     <Grid ColumnDefinitions="5*,4*" >
-        <Grid Grid.Row="0" Grid.Column="0" ColumnDefinitions="3*,*" RowDefinitions="5*,Auto,3*">
+        <Grid Grid.Row="0" Grid.Column="0" ColumnDefinitions="3*,
+        *" RowDefinitions="5*,Auto,3*">
             <!-- Equipment -->
             <Grid Grid.Row="0" Grid.Column="0" Background="Aqua">
                 <Label Content="Equipment"/>
