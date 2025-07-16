@@ -25,7 +25,9 @@ public partial class FightViewModel : PageViewModel
 
     [ObservableProperty] 
     private string _enemyHpDisplay;
-    public string CharacterHpDisplay => $"{Character.CurrentHp} / {Character.MaxHp}";
+    
+    [ObservableProperty]
+    private string _characterHpDisplay;
     public FightViewModel(IEnemyService enemyService,  ICharacterService characterService, IFightService fightService)
     {
         PageName = ApplicationPageNames.Fight;
@@ -40,6 +42,7 @@ public partial class FightViewModel : PageViewModel
         Debug.WriteLine("Po załadowaniu");
         // tymczasowe pokazywanie hp
         EnemyHpDisplay = SetCurrentEnemyHpDisplay();
+        CharacterHpDisplay = SetCurrentCharacterHpDisplay();
     }
 
     private EnemyModel GetEnemy()
@@ -58,6 +61,13 @@ public partial class FightViewModel : PageViewModel
         var hp = $"{Enemy.CurrentHp} / {Enemy.MaxHp}";
         return hp;
     }
+    
+    private string SetCurrentCharacterHpDisplay()
+    {
+        var hp = $"{Character.CurrentHp} / {Character.MaxHp}";
+        return hp;
+    }
+    
     [RelayCommand]
     private void PlayerAttack()
     {
