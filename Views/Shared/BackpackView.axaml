@@ -1,10 +1,15 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:dnd="clr-namespace:Avalonia.Input;assembly=Avalonia.Base"
              x:Class="AvaloniaRPG.Views.Shared.BackpackView"
              xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels"
              x:DataType="vm:BackpackViewModel">
-
-    <ItemsControl ItemsSource="{Binding Slots}">
+  
+    <Grid>
+    <ItemsControl ItemsSource="{Binding BackpackSlots}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <UniformGrid Rows="8" Columns="5" />
@@ -13,10 +18,38 @@
 
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border BorderBrush="Gray" BorderThickness="1" Margin="2" Background="DarkSlateGray" Width="50" Height="50">
-                    <TextBlock Text="{Binding Item.Name}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                <Border BorderBrush="Gray"
+                        BorderThickness="1"
+                        Margin="2"
+                        Background="DarkSlateGray"
+                        Tag="{Binding}"
+                        dnd:DragDrop.AllowDrop="True"
+                        dnd:DragDrop.Drop="Slot_Drop"
+                        dnd:DragDrop.DragOver="Slot_DragOver"
+                        PointerPressed="Slot_PointerPressed">
+
+                    <TextBlock Text="{Binding Item.Name}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               TextWrapping="Wrap" />
                 </Border>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
+        
+        <!-- Przenoszenie itemow -->
+        <ContentControl x:Name="DragAdorner"
+                        IsVisible="False"
+                        Background="#80000000"
+                        Foreground="White"
+                        Padding="4"
+                        ZIndex="1000"
+                        RenderTransformOrigin="0,0">
+            <ContentControl.RenderTransform>
+                <TranslateTransform X="0" Y="0"/>
+            </ContentControl.RenderTransform>
+        </ContentControl>
+        
+    </Grid>
 </UserControl>

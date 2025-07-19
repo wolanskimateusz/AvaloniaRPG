@@ -1,7 +1,7 @@
 ﻿using AvaloniaRPG.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace AvaloniaRPG.ViewModels;
+namespace AvaloniaRPG.ViewModels.Inventory;
 
 public class ItemSlot : ObservableObject
 {
