@@ -15,11 +15,14 @@ public partial class CharacterViewModel : PageViewModel
     
     [ObservableProperty]
     private CharacterModel _character;
-    public CharacterViewModel( ICharacterService characterService)
+    
+    public BackpackViewModel Backpack { get; }
+    public CharacterViewModel( ICharacterService characterService, BackpackViewModel backpack)
     {
         PageName = ApplicationPageNames.Character;
         _characterService = characterService;
         _character = GetCharacter();
+        Backpack = backpack;
     }
     [RelayCommand]
     private void SaveCharacter()

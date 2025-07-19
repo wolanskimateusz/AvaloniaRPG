@@ -5,6 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaRPG.Views.CharacterView"
         xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels"
+        xmlns:shared="clr-namespace:AvaloniaRPG.Views.Shared"
         x:DataType="vm:CharacterViewModel"
         Foreground="Black"
         Background="DimGray"
@@ -50,7 +51,7 @@
                 </StackPanel>
                 <!-- Backpack -->
                 <Grid Grid.Row="1" Background="DarkOliveGreen">
-                    <Label Content="Backpack" />
+                    <shared:BackpackView DataContext="{Binding Backpack}" />
                 </Grid>
             </Grid>
         </Grid>

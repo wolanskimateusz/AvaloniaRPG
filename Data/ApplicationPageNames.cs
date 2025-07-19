@@ -9,4 +9,5 @@ public enum ApplicationPageNames
     Guild,
     Ranking,
     Settings,
+    Backpack
 }

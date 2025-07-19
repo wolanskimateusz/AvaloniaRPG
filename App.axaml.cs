@@ -34,6 +34,7 @@ public partial class App : Application
         collection.AddTransient<SettingsViewModel>();
         collection.AddTransient<GuildViewModel>();
         collection.AddTransient<FightViewModel>();
+        collection.AddTransient<BackpackViewModel>();
         
         
         // Services
@@ -49,6 +50,7 @@ public partial class App : Application
             ApplicationPageNames.Settings => x.GetRequiredService<SettingsViewModel>(),
             ApplicationPageNames.Guild => x.GetRequiredService<GuildViewModel>(),
             ApplicationPageNames.Shop  => x.GetRequiredService<ShopViewModel>(),
+            ApplicationPageNames.Backpack => x.GetRequiredService<BackpackViewModel>(),
             
             _ => throw new InvalidOperationException(),
         });

@@ -1,0 +1,66 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaRPG.Views.Shared.BackpackView"
+             xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels"
+             x:DataType="vm:BackpackViewModel">
+   <UniformGrid Rows="8" Columns="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!-- 40 slotów (8x5) -->
+        <!-- Generujesz ręcznie lub przez XAML markup rozszerzony (tu dla prostoty ręcznie) -->
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Background="DarkSlateGray" Margin="2"/>
+    </UniformGrid>
+</UserControl>
