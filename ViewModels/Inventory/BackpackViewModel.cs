@@ -17,7 +17,6 @@ public partial class BackpackViewModel : PageViewModel
     
     public BackpackViewModel()
     {
-        PageName = ApplicationPageNames.Backpack;
         
         for (int i = 0; i < 40; i++)
             BackpackSlots.Add(new ItemSlot());

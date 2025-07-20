@@ -10,6 +10,8 @@
         <entry key="Views/MainWindow.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/RankingView.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/SettingsView.axaml" value="AvaloniaRPG.csproj" />
+        <entry key="Views/Shared/BackpackView.axaml" value="AvaloniaRPG.csproj" />
+        <entry key="Views/Shared/EquipmentView.axaml" value="AvaloniaRPG.csproj" />
         <entry key="Views/ShopView.axaml" value="AvaloniaRPG.csproj" />
       </map>
     </option>

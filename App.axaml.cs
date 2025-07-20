@@ -10,6 +10,7 @@ using AvaloniaRPG.Factories;
 using AvaloniaRPG.Interfaces;
 using AvaloniaRPG.Services;
 using AvaloniaRPG.ViewModels;
+using AvaloniaRPG.ViewModels.Inventory;
 using AvaloniaRPG.Views;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -35,6 +36,7 @@ public partial class App : Application
         collection.AddTransient<GuildViewModel>();
         collection.AddTransient<FightViewModel>();
         collection.AddTransient<BackpackViewModel>();
+        collection.AddTransient<EquipmentViewModel>();
         
         
         // Services
@@ -50,7 +52,6 @@ public partial class App : Application
             ApplicationPageNames.Settings => x.GetRequiredService<SettingsViewModel>(),
             ApplicationPageNames.Guild => x.GetRequiredService<GuildViewModel>(),
             ApplicationPageNames.Shop  => x.GetRequiredService<ShopViewModel>(),
-            ApplicationPageNames.Backpack => x.GetRequiredService<BackpackViewModel>(),
             
             _ => throw new InvalidOperationException(),
         });

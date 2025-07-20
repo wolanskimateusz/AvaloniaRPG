@@ -1,0 +1,31 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaRPG.Views.Shared.EquipmentView"
+             xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels.Inventory"
+             x:DataType="vm:EquipmentViewModel">
+    
+    <ItemsControl ItemsSource="{Binding EquipmentSlots}" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="10">
+        
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Rows="3" Columns="3" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border BorderBrush="Gray" BorderThickness="1" Margin="2" Background="DarkSlateGray" >
+                    <TextBlock Text="{Binding Item.Name}" 
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               Foreground="White"/>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+        
+    </ItemsControl>
+</UserControl>
