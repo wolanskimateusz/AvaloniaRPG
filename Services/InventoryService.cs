@@ -8,17 +8,17 @@ namespace AvaloniaRPG.Services;
 
 public class InventoryService : IInventoryService
 {
-    private ObservableCollection<ItemSlot> _equipmentSlots;
+    private readonly ObservableCollection<ItemSlot> _equipmentSlots;
     
-    private ItemSlot Helmet { get; } = new ItemSlot();
-    private ItemSlot Armor { get; } = new ItemSlot();
-    private ItemSlot Weapon { get; } = new ItemSlot();
-    private ItemSlot SecondHand { get; } = new ItemSlot();
-    private ItemSlot Boots { get; } = new ItemSlot();
-    private ItemSlot Gloves { get; } = new ItemSlot();
-    private ItemSlot Neckless { get; } = new ItemSlot();
-    private ItemSlot Ring { get; } = new ItemSlot();
-    private ItemSlot Buff { get; } = new ItemSlot();
+    private ItemSlot Helmet { get; } = new();
+    private ItemSlot Armor { get; } = new();
+    private ItemSlot Weapon { get; } = new();
+    private ItemSlot SecondHand { get; } = new();
+    private ItemSlot Boots { get; } = new();
+    private ItemSlot Gloves { get; } = new();
+    private ItemSlot Neckless { get; } = new();
+    private ItemSlot Ring { get; } = new();
+    private ItemSlot Buff { get; } = new();
     
     public InventoryService()
     {
@@ -53,7 +53,6 @@ public class InventoryService : IInventoryService
     
     // tymczasowe przychowywanie eq dla testów
     private WeaponModel _weapon = new WeaponModel {Name = "Axe", Strength = 10};
-    private IInventoryService _inventoryServiceImplementation;
 
     public WeaponModel GetWeapon()
     {

@@ -11,8 +11,8 @@ namespace AvaloniaRPG.ViewModels;
 public partial class FightViewModel : PageViewModel
 {
     private readonly IEnemyService _enemyService;
-    private readonly ICharacterService _characterService;
     private readonly IFightService _fightService;
+    private readonly ICharacterEqService _characterEqService;
 
     [ObservableProperty]
     private EnemyModel _enemy;
@@ -28,17 +28,17 @@ public partial class FightViewModel : PageViewModel
     
     [ObservableProperty]
     private string _characterHpDisplay;
-    public FightViewModel(IEnemyService enemyService,  ICharacterService characterService, IFightService fightService)
+    public FightViewModel(IEnemyService enemyService, IFightService fightService,  ICharacterEqService characterEqService)
     {
         PageName = ApplicationPageNames.Fight;
         
         _enemyService = enemyService;
-        _characterService = characterService;
         _fightService = fightService;
+        _characterEqService = characterEqService;
         
         _enemy = GetEnemy();
         Debug.WriteLine("Przed załadowaniem");
-        _character = GetCharacter();
+        _character = _characterEqService.Character;
         
         Debug.WriteLine("Po załadowaniu");
         // tymczasowe pokazywanie hp
@@ -50,11 +50,6 @@ public partial class FightViewModel : PageViewModel
     {
         var enemy = _enemyService.GetEnemy();
         return enemy;
-    }
-    private CharacterModel GetCharacter()
-    {
-        var character = _characterService.GetCharacter();
-        return character;
     }
 
     private string SetCurrentEnemyHpDisplay()
