@@ -6,7 +6,7 @@
              x:Class="AvaloniaRPG.Views.Shared.EquipmentView"
              xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels.Inventory"
              x:DataType="vm:EquipmentViewModel">
-    
+    <Grid>
     <ItemsControl ItemsSource="{Binding EquipmentSlots}" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="10">
         
@@ -28,4 +28,6 @@
         </ItemsControl.ItemTemplate>
         
     </ItemsControl>
+    <Button Content="Change Wepaon" Command="{Binding ChangeWeaponCommand}" />
+    </Grid>
 </UserControl>

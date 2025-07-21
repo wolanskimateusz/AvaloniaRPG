@@ -39,6 +39,7 @@ public partial class FightViewModel : PageViewModel
         _enemy = GetEnemy();
         Debug.WriteLine("Przed załadowaniem");
         _character = GetCharacter();
+        
         Debug.WriteLine("Po załadowaniu");
         // tymczasowe pokazywanie hp
         EnemyHpDisplay = SetCurrentEnemyHpDisplay();

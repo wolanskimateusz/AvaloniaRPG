@@ -13,6 +13,7 @@ using AvaloniaRPG.ViewModels;
 using AvaloniaRPG.ViewModels.Inventory;
 using AvaloniaRPG.Views;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace AvaloniaRPG;
 
@@ -29,21 +30,23 @@ public partial class App : Application
         var collection = new ServiceCollection();
         // ViewModels
         collection.AddSingleton<MainWindowViewModel>();
-        collection.AddTransient<CharacterViewModel>();
+        collection.AddSingleton<CharacterViewModel>();
         collection.AddTransient<ShopViewModel>();
         collection.AddTransient<RankingViewModel>();
         collection.AddTransient<SettingsViewModel>();
         collection.AddTransient<GuildViewModel>();
         collection.AddTransient<FightViewModel>();
-        collection.AddTransient<BackpackViewModel>();
-        collection.AddTransient<EquipmentViewModel>();
+        collection.AddSingleton<BackpackViewModel>();
+        collection.AddSingleton<EquipmentViewModel>();
         
         
         // Services
         collection.AddSingleton<ICharacterService, FileCharacterService>();
         collection.AddSingleton<IEnemyService, EnemyService>();
         collection.AddSingleton<IFightService, FightService>();
-
+        collection.AddSingleton<IInventoryService, InventoryService>();
+        collection.AddSingleton<ICharacterEqService, CharacterEqService>();
+        
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {
             ApplicationPageNames.Character => x.GetRequiredService<CharacterViewModel>(),

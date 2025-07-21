@@ -23,9 +23,11 @@ public partial class CharacterViewModel : PageViewModel
     {
         PageName = ApplicationPageNames.Character;
         _characterService = characterService;
-        _character = GetCharacter();
+        _character = _characterService.GetCharacter();
         Backpack = backpack;
         Equipment = equipment;
+        Equipment.Character = Character;
+        _characterService.UpdateCharacterStats(Character, equipment.EquipmentSlots);
     }
     [RelayCommand]
     private void SaveCharacter()
@@ -33,13 +35,7 @@ public partial class CharacterViewModel : PageViewModel
         Debug.WriteLine("SaveCharacter called");
         _characterService.SaveCharacter(Character);
     }
-
-    private CharacterModel GetCharacter()
-    {
-        var character = _characterService.GetCharacter();
-        Debug.WriteLine($"Loaded character: {character?.Name ?? "null"}");
-        return character;
-    }
+    
     
  
 }
