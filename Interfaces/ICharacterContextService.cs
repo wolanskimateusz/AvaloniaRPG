@@ -4,7 +4,7 @@ using AvaloniaRPG.ViewModels.Inventory;
 
 namespace AvaloniaRPG.Interfaces;
 
-public interface ICharacterEqService
+public interface ICharacterContextService
 {
     CharacterModel Character { get; }
     ObservableCollection<ItemSlot> EquipmentSlots { get; }

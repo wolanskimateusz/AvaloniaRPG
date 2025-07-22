@@ -20,7 +20,8 @@ public partial class CharacterViewModel : PageViewModel
     
     public BackpackViewModel Backpack { get; }
     public  EquipmentViewModel Equipment { get; }
-    public CharacterViewModel(ICharacterService characterService, BackpackViewModel backpack,  EquipmentViewModel equipment, IInventoryService inventoryService)
+    public CharacterViewModel(ICharacterService characterService, BackpackViewModel backpack,  EquipmentViewModel equipment, IInventoryService inventoryService
+    )
     {
         PageName = ApplicationPageNames.Character;
         _characterService = characterService;
@@ -31,6 +32,10 @@ public partial class CharacterViewModel : PageViewModel
         Equipment = equipment;
         Equipment.Character = Character;
         _inventoryService.GetBackpackSlots(Character, backpack.BackpackSlots);
+        _characterService.UpdateCharacterStats(Character, Equipment.EquipmentSlots);
+        Debug.WriteLine("CharacterViewModel update");
+      
+        
     }
     [RelayCommand]
     private void SaveCharacter()

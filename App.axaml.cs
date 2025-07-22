@@ -45,7 +45,7 @@ public partial class App : Application
         collection.AddSingleton<IEnemyService, EnemyService>();
         collection.AddSingleton<IFightService, FightService>();
         collection.AddSingleton<IInventoryService, InventoryService>();
-        collection.AddSingleton<ICharacterEqService, CharacterEqService>();
+        collection.AddSingleton<ICharacterContextService, CharacterContextService>();
         
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {

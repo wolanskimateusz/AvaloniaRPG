@@ -14,20 +14,23 @@ public partial class EquipmentViewModel : PageViewModel
 {
     private readonly IInventoryService _inventoryService;
     private readonly ICharacterService _characterService;
-    private readonly ICharacterEqService _characterEqService;
+    private readonly ICharacterContextService _characterContextService;
 
     public CharacterModel Character { get; set; } = null!;
     
     public  ObservableCollection<ItemSlot> EquipmentSlots { get; }
 
     
-    public EquipmentViewModel(IInventoryService inventoryService, ICharacterService characterService, ICharacterEqService characterEqService)
+    public EquipmentViewModel(IInventoryService inventoryService, ICharacterService characterService, ICharacterContextService characterContextService)
     {
+        Debug.WriteLine("EqViewModel update 1");
         _characterService = characterService;
         _inventoryService = inventoryService;
+       // _characterContextService = characterContextService;
         EquipmentSlots = _inventoryService.GetEquipmentSlots();
         
         SetPropertyChangedHandlers();
+        Debug.WriteLine("EqViewModel update 2");
     }
     
     private void SetPropertyChangedHandlers()

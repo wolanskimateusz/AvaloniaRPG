@@ -12,7 +12,7 @@ public partial class FightViewModel : PageViewModel
 {
     private readonly IEnemyService _enemyService;
     private readonly IFightService _fightService;
-    private readonly ICharacterEqService _characterEqService;
+    private readonly ICharacterContextService _characterContextService;
 
     [ObservableProperty]
     private EnemyModel _enemy;
@@ -28,17 +28,17 @@ public partial class FightViewModel : PageViewModel
     
     [ObservableProperty]
     private string _characterHpDisplay;
-    public FightViewModel(IEnemyService enemyService, IFightService fightService,  ICharacterEqService characterEqService)
+    public FightViewModel(IEnemyService enemyService, IFightService fightService,  ICharacterContextService characterContextService)
     {
         PageName = ApplicationPageNames.Fight;
         
         _enemyService = enemyService;
         _fightService = fightService;
-        _characterEqService = characterEqService;
+        _characterContextService = characterContextService;
         
         _enemy = GetEnemy();
         Debug.WriteLine("Przed załadowaniem");
-        _character = _characterEqService.Character;
+        _character = _characterContextService.Character;
         
         Debug.WriteLine("Po załadowaniu");
         // tymczasowe pokazywanie hp
