@@ -9,16 +9,18 @@ namespace AvaloniaRPG.Services;
 public class InventoryService : IInventoryService
 {
     private readonly ObservableCollection<ItemSlot> _equipmentSlots;
+
+    private readonly ObservableCollection<ItemSlot> _backpackSlots;
     
-    private ItemSlot Helmet { get; } = new();
-    private ItemSlot Armor { get; } = new();
-    private ItemSlot Weapon { get; } = new();
-    private ItemSlot SecondHand { get; } = new();
-    private ItemSlot Boots { get; } = new();
-    private ItemSlot Gloves { get; } = new();
-    private ItemSlot Neckless { get; } = new();
-    private ItemSlot Ring { get; } = new();
-    private ItemSlot Buff { get; } = new();
+    private ItemSlot Helmet { get; } = new() {SlotType = SlotType.Helmet};
+    private ItemSlot Armor { get; } = new() {SlotType = SlotType.Armor};
+    private ItemSlot Weapon { get; } = new() {SlotType = SlotType.Weapon};
+    private ItemSlot SecondHand { get; } = new() {SlotType = SlotType.SecondHand};
+    private ItemSlot Boots { get; } = new() {SlotType = SlotType.Boots};
+    private ItemSlot Gloves { get; } = new() {SlotType = SlotType.Gloves};
+    private ItemSlot Neckless { get; } = new() {SlotType = SlotType.Neckless};
+    private ItemSlot Ring { get; } = new() {SlotType = SlotType.Ring};
+    private ItemSlot Buff { get; } = new() {SlotType = SlotType.Buff};
     
     public InventoryService()
     {
@@ -35,12 +37,15 @@ public class InventoryService : IInventoryService
             Ring
         };
 
+        _backpackSlots = new ObservableCollection<ItemSlot>();
+       setBackpackSlots(_backpackSlots);
+
         SetSampleItems();
     }
     
     private void SetSampleItems()
     {
-        Helmet.Item = new ItemModel { Name = "Iron Helmet" };
+        Helmet.Item = new HelmetModel { Name = "Iron Helmet", Intelligence = 10};
         Weapon.Item = new WeaponModel { Name = "Sword", Strength = 5 };
         SecondHand.Item = new ItemModel { Name = "Shield" };
         Armor.Item = new ItemModel { Name = "Armor" };
@@ -50,9 +55,23 @@ public class InventoryService : IInventoryService
         Gloves.Item = new ItemModel { Name = "Gloves" };
         Buff.Item = new ItemModel { Name = "Buff" };
     }
-    
+
+    private void setBackpackSlots(ObservableCollection<ItemSlot> BackpackSlots)
+    {
+        {
+            for (int i = 0; i < 40; i++) 
+                BackpackSlots.Add(new ItemSlot { SlotType = SlotType.None});
+            
+            //temp itemy
+            
+            BackpackSlots[5].Item = new WeaponModel { Name = "Axe" , Strength = 10};
+            BackpackSlots[2].Item = new HelmetModel { Name = "Helmet", Intelligence = 5};
+
+        };
+    }
     // tymczasowe przychowywanie eq dla testów
     private WeaponModel _weapon = new WeaponModel {Name = "Axe", Strength = 10};
+    private IInventoryService _inventoryServiceImplementation;
 
     public WeaponModel GetWeapon()
     {
@@ -64,5 +83,10 @@ public class InventoryService : IInventoryService
     public ObservableCollection<ItemSlot> GetEquipmentSlots()
     {
         return _equipmentSlots;
+    }
+
+    public ObservableCollection<ItemSlot> GetBackpackSlots(CharacterModel Character, ObservableCollection<ItemSlot> BackpackSlots)
+    {
+        return _backpackSlots;
     }
 }

@@ -18,7 +18,6 @@ public partial class EquipmentViewModel : PageViewModel
 
     public CharacterModel Character { get; set; } = null!;
     
-    
     public  ObservableCollection<ItemSlot> EquipmentSlots { get; }
 
     

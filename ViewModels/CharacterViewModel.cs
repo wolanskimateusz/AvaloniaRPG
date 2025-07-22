@@ -13,21 +13,25 @@ public partial class CharacterViewModel : PageViewModel
 {
     
     private readonly ICharacterService  _characterService;
+    private readonly IInventoryService _inventoryService;
     
     [ObservableProperty]
     private CharacterModel _character;
     
     public BackpackViewModel Backpack { get; }
     public  EquipmentViewModel Equipment { get; }
-    public CharacterViewModel( ICharacterService characterService, BackpackViewModel backpack,  EquipmentViewModel equipment)
+    public CharacterViewModel(ICharacterService characterService, BackpackViewModel backpack,  EquipmentViewModel equipment, IInventoryService inventoryService)
     {
         PageName = ApplicationPageNames.Character;
         _characterService = characterService;
+        _inventoryService = inventoryService;
         _character = _characterService.GetCharacter();
         Backpack = backpack;
+        Backpack.Character = Character;
         Equipment = equipment;
         Equipment.Character = Character;
         _characterService.UpdateCharacterStats(Character, equipment.EquipmentSlots);
+        _inventoryService.GetBackpackSlots(Character, backpack.BackpackSlots);
     }
     [RelayCommand]
     private void SaveCharacter()

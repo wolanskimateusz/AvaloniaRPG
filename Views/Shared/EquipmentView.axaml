@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaRPG.Views.Shared.EquipmentView"
+             xmlns:dnd="clr-namespace:Avalonia.Input;assembly=Avalonia.Base"
              xmlns:vm="clr-namespace:AvaloniaRPG.ViewModels.Inventory"
              x:DataType="vm:EquipmentViewModel">
     <Grid>
@@ -18,16 +19,36 @@
         
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border BorderBrush="Gray" BorderThickness="1" Margin="2" Background="DarkSlateGray" >
-                    <TextBlock Text="{Binding Item.Name}" 
-                               VerticalAlignment="Center" 
+                <Border BorderBrush="Gray"
+                        BorderThickness="1"
+                        Margin="2"
+                        Background="DarkOliveGreen"
+                        Tag="{Binding}"
+                        dnd:DragDrop.AllowDrop="True"
+                        dnd:DragDrop.Drop="Slot_Drop"
+                        dnd:DragDrop.DragOver="Slot_DragOver"
+                        PointerPressed="Slot_PointerPressed">
+
+                    <TextBlock Text="{Binding DisplayName}"
+                               VerticalAlignment="Center"
                                HorizontalAlignment="Center"
-                               Foreground="White"/>
+                               Foreground="White"
+                               TextWrapping="Wrap" /> 
                 </Border>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
-        
     </ItemsControl>
-    <Button Content="Change Wepaon" Command="{Binding ChangeWeaponCommand}" />
+    <!-- Przenoszenie itemow -->
+    <ContentControl x:Name="DragAdorner"
+                    IsVisible="False"
+                    Background="#80000000"
+                    Foreground="White"
+                    Padding="4"
+                    ZIndex="1000"
+                    RenderTransformOrigin="0,0">
+        <ContentControl.RenderTransform>
+            <TranslateTransform X="0" Y="0"/>
+        </ContentControl.RenderTransform>
+    </ContentControl>
     </Grid>
 </UserControl>
