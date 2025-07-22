@@ -25,7 +25,6 @@ public partial class EquipmentViewModel : PageViewModel
     {
         _characterService = characterService;
         _inventoryService = inventoryService;
-        _characterEqService = characterEqService;
         EquipmentSlots = _inventoryService.GetEquipmentSlots();
         
         SetPropertyChangedHandlers();
@@ -51,7 +50,6 @@ public partial class EquipmentViewModel : PageViewModel
         {
             Debug.WriteLine("Slot changed – updating character stats");
             _characterService.UpdateCharacterStats(Character, EquipmentSlots);
-            _characterEqService.RefreshStats();
         }
     }
     

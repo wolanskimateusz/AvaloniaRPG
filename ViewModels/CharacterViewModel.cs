@@ -30,7 +30,6 @@ public partial class CharacterViewModel : PageViewModel
         Backpack.Character = Character;
         Equipment = equipment;
         Equipment.Character = Character;
-        _characterService.UpdateCharacterStats(Character, equipment.EquipmentSlots);
         _inventoryService.GetBackpackSlots(Character, backpack.BackpackSlots);
     }
     [RelayCommand]
